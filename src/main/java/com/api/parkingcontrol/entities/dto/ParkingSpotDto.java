@@ -12,28 +12,28 @@ import lombok.Setter;
 @Setter
 public class ParkingSpotDto {
 
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String parkingSpotNumber;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	@Size(max = 7)
 	private String licensePlateCar;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String brandCar;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String modelCar;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String colorCar;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String responsibleName;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String apartment;
 	
-	@NotBlank
+	@NotBlank(message = "Campo não pode ser nulo")
 	private String block;
 }
