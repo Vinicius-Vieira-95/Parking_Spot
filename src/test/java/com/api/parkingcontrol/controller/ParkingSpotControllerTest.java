@@ -1,6 +1,5 @@
 package com.api.parkingcontrol.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.UUID;
@@ -46,23 +45,37 @@ public class ParkingSpotControllerTest {
     }
 
     @Test
-    public void GetTest() throws Exception {
+    public void getTest() throws Exception {
         // cenario
-        setup();
         // acao
-        var id = new UUID(16, 2);
+        var id = UUID.randomUUID();
         when(this.parkingSpotService.getId(id)).thenReturn(dto);
         // verificacao
         given().accept(ContentType.JSON).get("/parking-spot/{id}", id).then().statusCode(200);
     }
+    
+    @Test
+    public void postTest() {
+    	//cenario
+    	when(this.parkingSpotService.insert(dto)).thenReturn(dto);
+    	//verificação
+    	given().contentType(ContentType.JSON).body(dto).when().post("/parking-spot").then().statusCode(201);
+    	
+    }
+    
+    public void  updateTest() {
+    	
+    }
 
-    // @Test
-    // public void testAdd() {
-    // //cenario
-    // setup();
-    // //acao
-    // when(this.parkingSpotService.insert(dto));
-    // //verificacao
-
-    // }
 }
+
+
+
+
+
+
+
+
+
+
+

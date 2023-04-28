@@ -25,10 +25,11 @@ public class ParkingSpotService {
 	private ModelMapper mapper;
 
 	@Transactional
-	public ParkingSpot insert(ParkingSpotDto dto) {
+	public ParkingSpotDto insert(ParkingSpotDto dto) {
 		var ps = mapper.map(dto, ParkingSpot.class);
 		ps.setRegistrationDate(LocalDateTime.now());
-		return repository.save(ps);
+		repository.save(ps);
+		return dto;
 	}
 
 	public ParkingSpotDto getId(UUID id) throws Exception {

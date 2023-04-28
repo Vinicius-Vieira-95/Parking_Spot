@@ -32,7 +32,7 @@ public class ParkingSpotController {
 	private ParkingSpotService service;
 	
 	@PostMapping
-	public ResponseEntity<ParkingSpot> add(@RequestBody @Valid ParkingSpotDto dto) {
+	public ResponseEntity<ParkingSpotDto> add(@RequestBody @Valid ParkingSpotDto dto) {
 		var ps = service.insert(dto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(ps);
 	}
